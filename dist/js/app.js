@@ -2,7 +2,7 @@ var emeals;
 
 emeals = angular.module('emeals', ['blueimp.fileupload', 'emeals.services', 'emeals.directives', 'emeals.filters', 'emeals.controllers']);
 
-emeals.config(function($routeProvider) {
+efoodclndr.config(function($routeProvider) {
   return $routeProvider.when('/', {
     templateUrl: 'views/meals/home.html'
   }).when('/meals/:mealId', {
@@ -88,13 +88,13 @@ emeals.config(function($routeProvider) {
   });
 });
 
-emeals.config(function($locationProvider) {
+efoodclndr.config(function($locationProvider) {
   return $locationProvider.html5Mode(true);
 });
 
 ;var services;
 
-services = angular.module('emeals.services', ['restangular']);
+services = angular.module('efoodclndr.services', ['restangular']);
 
 services.config(function(RestangularProvider) {
   RestangularProvider.setBaseUrl("/api");
@@ -103,19 +103,19 @@ services.config(function(RestangularProvider) {
   });
 });
 
-;angular.module('emeals.filters', []);
+;angular.module('efoodclndr.filters', []);
 
 _.mixin(_.string.exports());
 
-;angular.module('emeals.directives', ['emeals.services']);
+;angular.module('efoodclndr.directives', ['emeefoodclndr.services']);
 
-;angular.module('emeals.controllers', ['emeals.services']);
+;angular.module('emeaefoodclndr.controllers', ['efoodclndr.services']);
 
-;angular.module('emeals.controllers').controller('NavigationCtrl', function($scope, Navigation) {
+;angular.module('efoodclndr.controllers').controller('NavigationCtrl', function($scope, Navigation) {
   return $scope.nav = Navigation;
 });
 
-;angular.module('emeals.controllers').controller('UploadCtrl', function($scope) {
+;angular.module('efoodclndr.controllers').controller('UploadCtrl', function($scope) {
   $scope.options = {
     autoUpload: true,
     dropZone: $("#sidebar")
@@ -129,7 +129,7 @@ _.mixin(_.string.exports());
   });
 });
 
-;angular.module('emeals.controllers').controller('DishEditCtrl', function($scope) {
+;angular.module('efoodclndr.controllers').controller('DishEditCtrl', function($scope) {
   $scope.unitChoices = ["teaspoon", "tablespoon", "cup", "oz", "lb", "clove"].sort();
   $scope.$watch('meal', function() {
     return $scope.dish = $scope.meal[$scope.type];
