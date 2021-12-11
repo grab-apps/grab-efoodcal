@@ -5,7 +5,7 @@
     "type": "git",
     "url": "https://github.com/grab-apps/grab-efoodcal.git"
   },
-  "author": "Astab Uddin <admin@grab-solutions.com>",
+  "author": "Aftab Uddin <admin@grab-solutions.com>",
   "dependencies": {
     "karma-script-launcher": "~0.1.0",
     "karma-firefox-launcher": "~0.1.0",
@@ -16,7 +16,7 @@
     "karma-phantomjs-launcher": "~0.1.0",
     "karma": "~0.10.1",
     "express": "3.3.5",
-    "underscore": "~1.5.1",
+    "underscore": ">=1.12.1",
     "cradle": "~0.6.6",
     "dateformat": "~1.0.6-1.2.3",
     "elastic.js": "~1.1.1",
