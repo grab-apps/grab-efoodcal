@@ -1,9 +1,9 @@
 require 'rubygems'
 require 'capistrano/node-deploy'
 
-set :application, 'emeals'
+set :application, 'efoodclndr'
 set :node_env, 'production'
-set :repository, 'https://github.com/mjm/emeals-angular.git'
+set :repository, 'https://github.com/cloudflare/JSON.is.git'
 set :user, 'deploy'
 set :use_sudo, false
 set :scm, :git
