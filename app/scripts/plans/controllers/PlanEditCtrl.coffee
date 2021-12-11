@@ -1,4 +1,4 @@
-angular.module('emeals.plans').controller 'PlanEditCtrl', ($scope, plan, $location, Errors) ->
+angular.module('efoodclndr.plans').controller 'PlanEditCtrl', ($scope, plan, $location, Errors) ->
   $scope.plan = plan
   $scope.isNew = false
 
