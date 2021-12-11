@@ -1,1 +1,1 @@
-angular.module 'emeals.meals', ['emeals.common']
+angular.module 'efoodclndr.meals', ['efoodclndr.common']
