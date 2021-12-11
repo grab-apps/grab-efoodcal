@@ -1,5 +1,5 @@
 describe 'Controller: UploadCtrl', ->
-  beforeEach module 'emeals.common'
+  beforeEach module 'efoodclndr.common'
   beforeEach inject ($rootScope, $controller) ->
     @scope = $rootScope.$new()
     $controller 'UploadCtrl', $scope: @scope
