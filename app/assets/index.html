@@ -1,0 +1,87 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Eats</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/index.html">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <link rel="stylesheet" type="text/css" href="/css/app.css">
+    <link rel="stylesheet" type="text/css" href="/css/vendor.css">
+  </head>
+  <body ng-app="emeals">
+    <div class="errors">
+      <div
+        class="alert alert-dismissable"
+        ng-repeat="error in errors"
+        ng-class="{'alert-danger': error.type == 'error',
+                   'alert-warning': error.type == 'warning',
+                   'alert-success': error.type == 'success'}">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <strong ng-show="error.type == 'error'">Oh no!</strong>
+        <strong ng-show="error.type == 'warning'">Warning!</strong>
+        <strong ng-show="error.type == 'success'">Success!</strong>
+        {{error.message}}
+      </div>
+    </div>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" ng-controller="NavigationCtrl">
+      <div class="navbar-header">
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".main-nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a href="/" class="navbar-brand">Eats</a>
+      </div>
+
+      <div class="collapse navbar-collapse main-nav-collapse">
+        <ul class="nav navbar-nav">
+          <li class="dropdown" ng-class="{active: nav.isViewingPlans()}">
+            <a href="/plans">Menu Planning</a><!--
+            --><a class="dropdown-toggle" data-toggle="dropdown">
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="/plans/current">Current Plan</a></li>
+              <li class="divider"></li>
+              <li><a href="/plans/new">New Plan</a></li>
+            </ul>
+          </li>
+          <li ng-class="{active: nav.isViewingMeals()}"><a href="/meals">Meal Details</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Add your site or application content here -->
+    <div class="row">
+      <div id="content"
+        ng-view=""
+        class="col-sm-9 col-sm-push-3"></div>
+      <div id="sidebar"
+        ng-controller="MealsListCtrl"
+        ng-include
+        upload-drop-zone
+        src="'views/meals/list.html'"
+        class="col-sm-3 col-sm-pull-9">
+      </div>
+    </div>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+      var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+      g.src='//www.google-analytics.com/ga.js';
+      s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
+
+    <script src="/js/vendor.js"></script>
+    <script src="/js/app.js"></script>
+  </body>
+</html>

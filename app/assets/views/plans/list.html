@@ -1,0 +1,36 @@
+<div class="pull-right">
+  <a href="/plans/new" class="btn btn-success">
+    <span class="glyphicon glyphicon-plus"></span>
+    Create New Plan
+  </a>
+</div>
+
+<h2>Your Current Plan</h2>
+
+<p>
+  <h5>
+    <a href="/plans/current">
+      {{current.name}}
+    </a>
+  </h5>
+  <div>
+    {{current.days.start | utcdate}} to {{current.days.end | utcdate}}
+  </div>
+</p>
+
+<h2>Your Meal Plans</h2>
+
+<div class="row">
+  <div class="col-sm-6">
+    <h3>Past Plans</h3>
+    <let name="plans" value="pastPlans">
+      <ng-include src="'views/plans/table.html'"></ng-include>
+    </let>
+  </div>
+  <div class="col-sm-6">
+    <h3>Future Plans</h3>
+    <let name="plans" value="futurePlans">
+      <ng-include src="'views/plans/table.html'"></ng-include>
+    </let>
+  </div>
+</div>
