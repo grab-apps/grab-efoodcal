@@ -1,6 +1,6 @@
-var emeals;
+var efoodclndr;
 
-emeals = angular.module('emeals', ['blueimp.fileupload', 'emeals.services', 'emeals.directives', 'emeals.filters', 'emeals.controllers']);
+efoodclndr= angular.module('efoodclndr', ['blueimp.fileupload', 'efoodclndr.services', 'efoodclndr.directives', 'efoodclndr.filters', 'efoodclndr.controllers']);
 
 efoodclndr.config(function($routeProvider) {
   return $routeProvider.when('/', {
@@ -148,13 +148,13 @@ _.mixin(_.string.exports());
   };
 });
 
-;angular.module('emeals.controllers').controller('DishShowCtrl', function($scope) {
+;angular.module('efoodclndr.controllers').controller('DishShowCtrl', function($scope) {
   return $scope.$watch('meal', function() {
     return $scope.dish = $scope.meal[$scope.type];
   });
 });
 
-;angular.module('emeals.controllers').controller('MealEditCtrl', function($scope, $rootScope, $location, meal, Errors) {
+;angular.module('efoodclndr.controllers').controller('MealEditCtrl', function($scope, $rootScope, $location, meal, Errors) {
   $scope.meal = meal;
   $scope.cancel = function() {
     return $location.path("/meals/" + meal._id);
@@ -167,7 +167,7 @@ _.mixin(_.string.exports());
   };
 });
 
-;angular.module('emeals.controllers').controller('MealShowCtrl', function($scope, $rootScope, $location, $window, meal) {
+;angular.module('efoodclndr.controllers').controller('MealShowCtrl', function($scope, $rootScope, $location, $window, meal) {
   $scope.meal = meal;
   return $scope.remove = function() {
     if ($window.confirm("Are you sure you want to delete the meal?")) {
@@ -181,7 +181,7 @@ _.mixin(_.string.exports());
   };
 });
 
-;angular.module('emeals.controllers').controller('MealsListCtrl', function($scope, $routeParams, Meals, Navigation, Errors) {
+;angular.module('efoodclndr.controllers').controller('MealsListCtrl', function($scope, $routeParams, Meals, Navigation, Errors) {
   var loadMeals;
   $scope.$routeParams = $routeParams;
   $scope.nav = Navigation;
@@ -226,7 +226,7 @@ _.mixin(_.string.exports());
   });
 });
 
-;angular.module('emeals.controllers').controller('PlanEditCtrl', function($scope, plan, $location, Errors) {
+;angular.module('efoodclndr.controllers').controller('PlanEditCtrl', function($scope, plan, $location, Errors) {
   $scope.plan = plan;
   $scope.isNew = false;
   $scope.cancel = function() {
@@ -239,13 +239,13 @@ _.mixin(_.string.exports());
   };
 });
 
-;angular.module('emeals.controllers').controller('PlanListCtrl', function($scope, pastPlans, futurePlans, current) {
+;angular.module('efoodclndr.controllers').controller('PlanListCtrl', function($scope, pastPlans, futurePlans, current) {
   $scope.pastPlans = pastPlans;
   $scope.futurePlans = futurePlans;
   return $scope.current = current;
 });
 
-;angular.module('emeals.controllers').controller('PlanNewCtrl', function($scope, Dates, $location, Plans, Errors) {
+;angular.module('efoodclndr.controllers').controller('PlanNewCtrl', function($scope, Dates, $location, Plans, Errors) {
   $scope.plan = {
     name: "",
     days: {
@@ -271,7 +271,7 @@ mealCount = function(plan) {
   return _.flatten(_.values(plan.meals)).length;
 };
 
-angular.module('emeals.controllers').controller('PlanShowCtrl', function($scope, plan, Plans, $window, $location) {
+angular.module('efoodclndr.controllers').controller('PlanShowCtrl', function($scope, plan, Plans, $window, $location) {
   $scope.plan = plan;
   $scope.remove = function(day, index) {
     return $scope.plan.meals[day].splice(index, 1);
@@ -301,7 +301,7 @@ angular.module('emeals.controllers').controller('PlanShowCtrl', function($scope,
   });
 });
 
-;angular.module('emeals.controllers').controller('ScheduledMealsCtrl', function($scope, Plans) {
+;angular.module('efoodclndr.controllers').controller('ScheduledMealsCtrl', function($scope, Plans) {
   $scope.$watch('plan', function(plan) {
     return $scope.mealsByDay = Plans.mealsByDay(plan);
   });
@@ -324,7 +324,7 @@ categories = {
   staple: "Staples"
 };
 
-angular.module('emeals.controllers').controller('ShoppingListCtrl', function($scope, plan, shoppingList) {
+angular.module('efoodclndr.controllers').controller('ShoppingListCtrl', function($scope, plan, shoppingList) {
   $scope.plan = plan;
   $scope.shoppingList = shoppingList.categories;
   return $scope.displayName = function(category) {
@@ -332,7 +332,7 @@ angular.module('emeals.controllers').controller('ShoppingListCtrl', function($sc
   };
 });
 
-;angular.module('emeals.directives').directive('draggable', function($location, Navigation) {
+;angular.module('efoodclndr.directives').directive('draggable', function($location, Navigation) {
   return {
     restrict: 'A',
     link: function($scope, elem, attrs) {
@@ -358,7 +358,7 @@ getModelValue = function(elem) {
   }
 };
 
-angular.module('emeals.directives').directive('droppable', function() {
+angular.module('efoodclndr.directives').directive('droppable', function() {
   return {
     restrict: 'A',
     link: function($scope, elem, attrs) {
@@ -383,7 +383,7 @@ angular.module('emeals.directives').directive('droppable', function() {
   };
 });
 
-;angular.module('emeals.directives').directive('keySave', function($parse) {
+;angular.module('efoodclndr.directives').directive('keySave', function($parse) {
   return {
     restrict: 'A',
     link: function($scope, elem, attrs) {
@@ -401,7 +401,7 @@ angular.module('emeals.directives').directive('droppable', function() {
   };
 });
 
-;angular.module('emeals.directives').directive('let', function() {
+;angular.module('efoodclndr.directives').directive('let', function() {
   return {
     restrict: 'E',
     scope: true,
@@ -416,7 +416,7 @@ angular.module('emeals.directives').directive('droppable', function() {
   };
 });
 
-;angular.module('emeals.directives').directive('lineList', function() {
+;angular.module('efoodclndr.directives').directive('lineList', function() {
   return {
     scope: {
       text: '=text'
@@ -431,7 +431,7 @@ angular.module('emeals.directives').directive('droppable', function() {
   };
 });
 
-;angular.module('emeals.directives').directive('scrollToActive', function($timeout) {
+;angular.module('efoodclndr.directives').directive('scrollToActive', function($timeout) {
   var isVisible, scrollToElement;
   isVisible = function(elem, container) {
     var element, viewport;
@@ -478,7 +478,7 @@ angular.module('emeals.directives').directive('droppable', function() {
   };
 });
 
-;angular.module('emeals.directives').directive('uploadDropZone', function() {
+;angular.module('efoodclndr.directives').directive('uploadDropZone', function() {
   return {
     restrict: 'A',
     link: function($scope, elem) {
@@ -517,19 +517,19 @@ angular.module('emeals.directives').directive('droppable', function() {
   };
 });
 
-;angular.module('emeals.filters').filter('capitalize', function() {
+;angular.module('efoodclndr.filters').filter('capitalize', function() {
   return function(input) {
     return _.capitalize(input);
   };
 });
 
-;angular.module('emeals.filters').filter('ingredient', function() {
+;angular.module('efoodclndr.filters').filter('ingredient', function() {
   return function(ingredient) {
     return "" + (ingredient.amount || '') + " " + (ingredient.unit || '') + " " + ingredient.description;
   };
 });
 
-;angular.module('emeals.filters').filter('utcdate', function($filter) {
+;angular.module('efoodclndr.filters').filter('utcdate', function($filter) {
   return function(input, format) {
     var localDate, localOffset, localTime;
     if (format == null) {
@@ -546,7 +546,7 @@ angular.module('emeals.directives').directive('droppable', function() {
   };
 });
 
-;angular.module('emeals.services').factory('Dates', function() {
+;angular.module('efoodclndr.services').factory('Dates', function() {
   var Dates;
   return Dates = {
     format: function(date) {
@@ -570,7 +570,7 @@ angular.module('emeals.directives').directive('droppable', function() {
   };
 });
 
-;angular.module('emeals.services').factory('Errors', function($rootScope) {
+;angular.module('efoodclndr.services').factory('Errors', function($rootScope) {
   var Errors;
   return Errors = {
     setError: function(message) {
@@ -597,7 +597,7 @@ angular.module('emeals.directives').directive('droppable', function() {
   };
 });
 
-;angular.module('emeals.services').factory('Meals', function(Restangular, $route) {
+;angular.module('efoodclndr.services').factory('Meals', function(Restangular, $route) {
   var Meals;
   return Meals = {
     all: function() {
@@ -618,7 +618,7 @@ angular.module('emeals.directives').directive('droppable', function() {
   };
 });
 
-;angular.module('emeals.services').factory('Navigation', function($location) {
+;angular.module('efoodclndr.services').factory('Navigation', function($location) {
   return {
     isViewingMeals: function() {
       return /^\/($|meals)/.test($location.path());
@@ -629,7 +629,7 @@ angular.module('emeals.directives').directive('droppable', function() {
   };
 });
 
-;angular.module('emeals.services').factory('Plans', function(Dates, Restangular, $route) {
+;angular.module('efoodclndr.services').factory('Plans', function(Dates, Restangular, $route) {
   var Plans;
   return Plans = {
     load: function(id) {
@@ -677,5 +677,4 @@ angular.module('emeals.directives').directive('droppable', function() {
     }
   };
 });
-
 ;
