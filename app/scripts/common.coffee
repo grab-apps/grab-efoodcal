@@ -1,4 +1,4 @@
-common = angular.module 'emeals.common', ['ngRoute', 'restangular']
+common = angular.module 'efoodclndr.common', ['ngRoute', 'restangular']
 
 common.config (RestangularProvider) ->
   RestangularProvider.setBaseUrl "/api"
