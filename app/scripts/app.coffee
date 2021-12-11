@@ -1,9 +1,9 @@
-emeals = angular.module 'efoodclndr',
+efoodclndr = angular.module 'efoodclndr',
   ['blueimp.fileupload',
-   'emeals.meals',
-   'emeals.plans']
+   'efoodclndr.meals',
+   'efoodclndr.plans']
 
-emeals.config ($routeProvider) ->
+efoodclndr.config ($routeProvider) ->
   $routeProvider.when '/',
     templateUrl: 'views/meals/home.html'
 
