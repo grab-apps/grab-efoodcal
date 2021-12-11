@@ -1,7 +1,7 @@
 mealCount = (plan) ->
   _.flatten(_.values(plan.meals)).length
 
-angular.module('emeals.plans').controller 'PlanShowCtrl', ($scope, plan, Plans, $window, $location) ->
+angular.module('efoodclndr.plans').controller 'PlanShowCtrl', ($scope, plan, Plans, $window, $location) ->
   $scope.plan = plan
 
   $scope.remove = (day, index) ->
