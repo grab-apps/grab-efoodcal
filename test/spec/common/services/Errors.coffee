@@ -1,5 +1,5 @@
 describe "Service: Errors", ->
-  beforeEach module 'emeals.common'
+  beforeEach module 'efoodclndr.common'
   beforeEach inject (Errors) ->
     @subject = Errors
 
