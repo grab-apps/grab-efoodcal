@@ -1,5 +1,5 @@
 describe 'Service: Navigation', ->
-  beforeEach module 'emeals.common'
+  beforeEach module 'efoodclndr.common'
   beforeEach inject (Navigation) ->
     @nav = Navigation
 
