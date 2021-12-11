@@ -1,4 +1,4 @@
-emeals = angular.module 'emeals',
+emeals = angular.module 'efoodclndr',
   ['blueimp.fileupload',
    'emeals.meals',
    'emeals.plans']
@@ -53,5 +53,5 @@ emeals.config ($routeProvider) ->
   .otherwise
     redirectTo: '/'
 
-emeals.config ($locationProvider) ->
+efoodclndr.config ($locationProvider) ->
   $locationProvider.html5Mode(true)
