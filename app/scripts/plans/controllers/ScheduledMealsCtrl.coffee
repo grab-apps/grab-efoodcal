@@ -1,4 +1,4 @@
-angular.module('emeals.plans').controller 'ScheduledMealsCtrl', ($scope, Plans) ->
+angular.module('efoodclndr.plans').controller 'ScheduledMealsCtrl', ($scope, Plans) ->
   $scope.$watch 'plan', (plan) ->
     $scope.mealsByDay = Plans.mealsByDay plan
 
